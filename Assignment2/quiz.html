@@ -1,0 +1,107 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+    div#test{ border:#000 1px solid; padding:10px 40px 40px 40px;}
+    </style>
+    <script>
+    var pos =0,count=0,index,test,test_status,question,choice,choices,chA,chB,chC,correct=0;
+
+    //Multi dimentional array
+    var questions=[
+        ["what is 10 + 4?","12","14","16","B"],
+        ["what is 20 - 9?","7","13","11","C"],
+        ["what is 7 * 3?","21","24","25","A"],
+        ["what is 8 / 2?","10","2","4","C"],
+        ["what is 12 + 4?","12","14","16","C"],
+        ["what is 20 - 13?","7","13","11","A"],
+        ["what is 8 * 3?","21","24","25","B"],
+        ["what is 8 / 4?","10","2","4","B"],
+        ["what is 5 * 3?","21","24","15","C"],
+        ["what is 10 / 5?","10","2","4","B"]
+        ];
+
+  function _(x)
+  {
+    // return object reference for id string
+    return document.getElementById(x);
+  }
+
+  // question is populated to the page using renderQuestion function which is automatically go to the last question means last question by oteration...
+  function renderQuestion()
+  {
+    
+  
+    test= _("test");
+    if(pos>=5)
+    {
+      test.innerHTML="<h2> You got"+" " +correct + " "+"of"+" "+5+" "+"questions correct</h2>";
+      _("test_status").innerHTML="test completed";
+      pos=0;
+      correct=0;
+      return false;
+
+  }
+
+  
+
+    _("test_status").innerHTML="Question"+" "+(pos+1)+" of "+5;
+    index =Math.floor(10*Math.random());
+    question =questions[index][0];
+    chA=questions[index][1];
+    chB=questions[index][2];
+    chC=questions[index][3];
+
+
+    test.innerHTML="<h3>"+question+"</h3>";
+    // += is used here for pening data which is optinos for questions
+    test.innerHTML +="<input type='radio' name='choices', value='A'> " +chA + "<br>";
+    test.innerHTML +="<input type='radio' name='choices', value='B'> " +chB + "<br>";
+    test.innerHTML +="<input type='radio' name='choices', value='C'> " +chC + "<br><br>";
+    test.innerHTML +="<button onclick='checkAnswer()'>Submit Answer</button>";
+    count++;
+  
+
+  }
+
+  function checkAnswer()
+  {
+    choices=document.getElementsByName("choices");
+    for(var i=0;i<choices.length;i++)
+    {
+      if(choices[i].checked)
+      {
+        choice=choices[i].value;
+      }
+    }
+    if(choice==questions[index][4])
+    {
+      correct++;
+    }
+    else
+    {
+      
+
+      alert("wrong answer");
+      alert("Correct answer"+" "+questions[index][4]);
+
+
+    }
+    
+    pos++;
+    renderQuestion();
+  }
+  // to show the html document(DOM) in javascript use this listeneer with boolean...
+  window.addEventListener("load",renderQuestion,false);
+    
+    </script>
+  </head>
+  <body>
+    <h2 id="test_status"> </h2>
+    
+    <div id ="test"></div>
+
+    </body>
+
+  </html>

@@ -1,0 +1,77 @@
+		<!DOCTYPE html>
+		<html>
+		<head>
+			<p>
+				 <h1 align="center"> My Converter Page </h1> 
+			</p>
+
+			<script language="JavaScript">
+
+			function euroConverter()
+			{
+
+			document.converter.dollar.value = document.converter.euro.value * 1.470
+		document.converter.pound.value = document.converter.euro.value * 0.717
+		document.converter.yen.value = document.converter.euro.value * 165.192
+			document.converter.taka.value=document.converter.euro.value*97.6514
+
+		}
+			function dollarConverter (){
+			document.converter.euro.value = document.converter.dollar.value * 0.680
+		document.converter.pound.value = document.converter.dollar.value * 0.488
+		document.converter.yen.value = document.converter.dollar.value * 112.36
+			document.converter.taka.value=document.converter.taka.value*77.3050
+
+		}
+		function poundConverter(){
+			document.converter.dollar.value = document.converter.pound.value * 2.049
+		document.converter.euro.value = document.converter.pound.value * 1.394
+		document.converter.yen.value = document.converter.pound.value * 230.27
+			document.converter.taka.value=document.converter.pound.value*123.89
+		}
+		function yenConverter(){
+			document.converter.euro.value=document.converter.dollar.value*0.0089
+			document.converter.dollar.value=document.converter.dollar.value*0.00434
+			document.converter.pound.value=document.converter.dollar.value*0.00605
+			document.converter.taka.value=document.converter.taka.value*0.71
+		}
+		function takaConverter(){
+		    document.converter.dollar.value = document.converter.yen.value * 0.0089
+		document.converter.pound.value = document.converter.yen.value * 0.00434
+		document.converter.euro.value = document.converter.yen.value * 0.00605
+			document.converter.yen.value=document.converter.taka.value*77.3050
+			
+		}
+		</script>
+	
+		</head>
+		<body>
+			<div>
+			<form name="converter">
+				<table border="0">
+					<tr>
+	<td>Euro: </td><td><input type="text" name="euro" onChange="euroConverter()" /></td>
+	</tr>
+	<tr>
+	<td>US Dollar: </td><td><input type="text" name="dollar" onChange="dollarConverter()" /></td>
+	</tr>
+	<tr>
+	<td>British Pound:</td><td><input type="text" name="pound" onChange="poundConverter()" /></td>
+	</tr>
+	<tr>
+	<td>Japanese Yen: </td><td><input type="text" name="yen" onChange="yenConverter()" /></td>
+	</tr>
+	<tr>
+	<td>Taka: </td><td><input type="text" name="taka" onChange="takaConverter()" /></td>
+	</tr>
+	
+<tr>					
+<td colspan="6" align="center"><input type="button" value="Convert!" /></td>
+</tr>
+		               </table>
+	</form>
+</div>
+
+
+		</body>
+		</html>
